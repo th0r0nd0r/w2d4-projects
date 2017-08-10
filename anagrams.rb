@@ -1,12 +1,11 @@
 require 'byebug'
 
 def first_anagram?(string1, string2)
-  anagrams = []
   string1.chars.permutation.each do |perm|
-    anagrams << perm.join
+    return true if string2.chars == perm
   end
 
-  anagrams.include?(string2)
+  false
 end
 
 p first_anagram?("gizmo", "sally")    #=> false
@@ -50,7 +49,7 @@ end
 p third_anagram?("gizmo", "sally")    #=> false
 p third_anagram?("elvis", "lives")    #=> true
 
-#time complexity: O(n)
+#time complexity: O(nlog(n))
 
 def fourth_anagram?(string1, string2)
   chars_hash = Hash.new(0)
@@ -59,10 +58,10 @@ def fourth_anagram?(string1, string2)
   end
 
   string2.chars.each do |chr|
-    chars_hash[chr] += 1
+    chars_hash[chr] -= 1
   end
 
-  chars_hash.values.all? {|count| count == 2}
+  chars_hash.values.all? {|count| count == 0}
 end
 
 
