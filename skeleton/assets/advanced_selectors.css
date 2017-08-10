@@ -72,3 +72,9 @@ input[type="radio"] {
   height: 100px;
   vertical-align: bottom;
 }
+
+body {
+  background-image: url(http://cdn-image.foodandwine.com/sites/default/files/fwx-kitchen-trash-guy-fieri.jpg);
+  background-repeat: repeat;
+  background-size: 100px
+}
