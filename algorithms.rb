@@ -2,12 +2,13 @@ require 'byebug'
 
 
 def slow_min(array)
+  #so much fluff in here
   return_el = array[0]
   array.each do |el|
     compare_array = array.dup
     compare_array.delete(el)
     compare_array.each do |el2|
-      return_el = el if el < return_el
+      return_el = el2 if el2 < return_el
     end
   end
 
